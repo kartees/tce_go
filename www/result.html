@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tce Go</title>
+      <link rel="stylesheet" href="css/font.css">
+    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-analytics.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-database.js"></script>
+    <meta name="viewport" content="width=device-width,height=device-height">
+    <link rel="icon" type="image/png"  href="img/tce.png">
+   
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
+    crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css\font-awesome\css\font-awesome.min.css">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+  <style>
+body {
+      margin: 0;
+      padding: 0;
+      top:0;
+      height: 100vh;
+      width: 100vw;
+      position: absolute;
+      background-color: #1b1c1c;
+      font-family: sans-serif; 
+         }
+  .nav{
+   /* background: linear-gradient( 60deg , rgba(14, 158, 144,0.7),rgba(81, 194, 183,0.6));*/
+     background: url("img/navv1.jpg");
+     background-position: center center;
+     background-size: cover;
+    font-weight: bold;
+    box-shadow: 2px 2px 5px black;
+   font-family: 'Kanit', sans-serif;
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    display: inline-block;
+    z-index: 2;
+    top:0; 
+}
+.navtit{ 
+  margin: 0;
+  top: 0;
+  padding-left: 10px;
+  padding-bottom: 5px;
+  padding-top: 10px;
+  border :2px 5px 6px 2px solid white;
+  margin-top: 10px;
+  color: white;
+  font-family: 'Kanit',sans-serif;
+  font-weight: bold;
+  font-size: 23px;
+
+}
+.navtit img{
+   margin-top: 10px;
+   margin-left: 7px;
+   margin-right: 10px;
+}
+#nat{
+  position: relative;
+  background: linear-gradient(80deg ,#87fae3 ,#c2ffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 4px 3px 4px rgba(0,0,0,0.7);
+    letter-spacing: 1.2px;
+  top: 8px;
+}
+.nav i{
+  
+  color: white;
+  font-size: 35px;
+  position: relative;
+  padding-right: 5%;
+  padding-top: 4%;
+  right:0;
+  background: linear-gradient(80deg ,#87fae3 ,#c2ffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 4px 3px 4px rgba(0,0,0,0.7);
+   
+
+}
+.ico{
+  position: relative;
+  right: 2.4%;
+
+  padding-top: 10px;
+  padding-bottom: 4px;
+  float: right;
+}
+#blur.active{
+    filter: blur(20px);
+}
+#popup{
+    position: fixed;
+    top:30%;
+    margin-top: 2.5%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width: 80%;
+    padding:20px;
+    box-shadow:0 5px 5px rgba(0, 0,0,.30) ;
+    /*background: linear-gradient(60deg,rgba(55, 161, 155,0.5),rgba(32, 128, 122,0.6));
+   */ 
+    background: url("img/navv1.jpg");
+    background-size: cover;
+   color: #fff;
+    visibility: hidden;
+    font-weight: bold;
+    opacity: 0;
+    display: inline-block;
+    transition: 0.5s;
+    border-radius: 17px;
+    text-align: center;
+    justify-content: center;
+    z-index:4;
+}
+#popup.active{
+    visibility: visible;
+    opacity: 100%;
+    top:30%;
+}
+#popup i{
+   color: white;
+   font-size: 22px;
+   padding-right: 8px;
+   background: linear-gradient(80deg ,#c4cfcf ,white);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+    letter-spacing: 1.2px;
+
+ 
+}
+#popup a{
+    text-decoration: none;
+    background: linear-gradient(80deg ,#87fae3 ,#02e3b5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 3px rgba(64, 207, 178,0.5);
+    letter-spacing: 1.2px;
+    font-style: italic;
+    font-family: 'Kanit','Acme',sans-serif;
+    font-size: 25px;
+    letter-spacing: 1.3px;
+    padding: 8px 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+    
+
+       }
+     .register{
+       position: relative;
+       display: block;
+       align-items: center;
+       justify-content: center;
+       text-align: center;
+      width: 90%;
+      border: 2px 2px solid black;
+      padding-top: 5%;
+      
+      margin-top: 25%;
+      border-radius: 18px;
+      background: url("img/hall4.jpg");
+      background-size: cover;
+      background-position: center center;
+         padding-bottom: 10px;
+      color: white;
+ }   
+ .register h3{
+   font-family: 'Righteous' ,cursive;
+   font-weight: bold;
+   font-size: 33px;
+    background: linear-gradient(80deg ,#6eff9e ,#71ff1f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 4px 3px 4px rgba(0,0,0,0.7);
+    letter-spacing: 1.2px;
+    padding-bottom: 8px;
+ }
+ ul li {
+    display: flex;
+    position: relative;
+    border: 2px 2px solid white;
+    background: linear-gradient(120deg,rgba(25, 28, 27,0.8),rgba(8, 10, 9,0.8));
+    border-radius:15px;
+    text-align: center;
+    padding: 4px 5px;
+    width: 90%;
+    margin-bottom: 8px; 
+ }
+ .bu{
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    display: inline-block;
+    border: 1.5px solid ;
+    padding: 9px 20px;
+   
+    margin-top: 10%;
+    font-family: 'Acme',sans-serif;
+    font-weight: bold;
+    background : radial-gradient(#52eb5c,#15e858);
+    box-shadow: inset 0 0 10px #45d171 ,0 0 30px #45d171,0 0 60px #45d171;
+     box-shadow: 0 0 10px #40ff69,0 0 40px #40ff69,0 0 80px #40ff69;
+    text-decoration: none;
+    font-size: 1.1em;
+    overflow: hidden;
+    border: none;
+    border-radius: 10px;
+     color: black;
+    transition: 0.2s;
+    margin-bottom: 20px;
+
+}
+.bu:hover{
+  color: white;
+  border: none;
+  transform: scale(1.06);
+  text-decoration: none;
+   background : radial-gradient(#bcff36,#85ff0a);
+    box-shadow: inset 0 0 10px #b1ed2f ,0 0 30px #b1ed2f,0 0 60px #b1ed2f;
+     box-shadow: 0 0 10px #a9f241,0 0 40px #a9f241,0 0 80px #a9f241;
+  
+}
+ .too{
+    font-family: 'Acme','Kanit',sans-serif;
+    font-size: 20px;
+     background: linear-gradient(60deg ,#66baaa,#05e8bb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+
+ }
+ .loo{
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Kanit','Acme',cursive;
+    color: white;
+    letter-spacing: 1px;
+    padding-left: 20px;
+ }
+ .success{
+    border: 1px 1px solid black;
+    border-radius: 6px;
+    position: relative;
+    padding: 5px 20px;
+    width: 99%;
+    background : radial-gradient(#22bfb7,#0ead93);
+     
+    margin-top: 20px;
+    font-family: 'Righteous',sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    font-color: #212925;
+ }
+ .success p{
+    margin-bottom: 5px;
+    padding: 0;
+ }
+ @media only screen and (min-width: 650px) {
+    .register{
+      width: 35%;
+      padding-top: 3%;
+      margin-top: 8%;
+    }
+    .bu{
+      margin-top: 5%;
+    }
+    .success{
+       width: 40%;
+       font-size:19px;
+    }
+}
+</style>
+</head>
+<body>
+     <header>
+        <div class="nav"> 
+     <a class="navtit" href="#">
+                <img src="img/tce.png" width="30" height="30" class="d-inline-block align-top" alt=""><span id="nat">TCE GO<span></a>
+         <div class="ico"><i class="fa fa-th-list" aria-hidden="true"  onclick="toggle()" id="ic"></i></div>
+  </div>
+  <div id="popup">
+          
+          <span><i class="fa fa-home" aria-hidden="true"></i><a href="index.html">Home</a>
+          </span> <br>
+           <span><i class="fa fa-lock" aria-hidden="true"></i><a href="login.html">LogOut</a>
+           </span> <br>
+           <span><i class="fa fa-user" aria-hidden="true"></i><a href="signup.html">Sign Up</a>
+           </span> <br>
+           <span><i class="fa fa-briefcase" aria-hidden="true"></i><a href="register.html">Hall Details</a></span><br>
+           
+         </div>
+    </header>
+    <main id="blur">
+        <center><div class="register">
+    <h3>HALL DETAILS</h3>
+    
+
+        <ul>
+           <li>
+               <span class="too">BLOCK:</span>
+                <span  class="loo"  id="block"></span>
+           </li>
+            <li>
+               <span class="too">EXAM:</span>
+                <span  class="loo"  id="exam"></span>
+           </li>
+           <li>
+               <span class="too">TIME:</span>
+                <span  class="loo"  id="time"></span>
+           </li>
+            <li>
+               <span class="too">HALL NO:</span>
+                <span  class="loo"  id="hall"></span>
+           </li>
+            <li>
+               <span class="too">SEAT NO:</span>
+                <span  class="loo"  id="seat"></span>
+           </li>
+           
+        </ul>    
+    </div></center>
+       <center><a  href="table.html" class="bu">View seat position</a></center>
+    </div></center>
+      <center> <div class="success">
+       <p>ALL THE BEST !!!</p>
+         <center><span id="reg"></span></center>
+       </div></center>
+</main>
+  <script src="js/result.js" type="text/javascript" ></script>
+</body>
+</html>

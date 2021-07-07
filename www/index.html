@@ -1,0 +1,201 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+     <link rel="stylesheet" href="css/font.css">
+ <meta name="viewport" content="width=device-width,height=device-height">
+    <link rel="icon" type="image/png"  href="img/tce.png">
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
+    crossorigin="anonymous"></script>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   
+  <style>
+      body{
+           margin: 0;
+           padding: 0;
+           height: 100vh;
+           
+           background-image: url("img/bg5.jpg"); 
+           
+           background-size: cover;
+           
+  }
+  @media screen and (max-width: 600px)
+  {
+    body{
+        background-repeat: no-repeat;
+        background-position: center center; 
+    }
+  }
+     .tit{
+     	 font-family: 'Bungee Inline',Cursive;
+     	 font-size: 3.5em;
+         margin-left: 0;
+        align-items: center;
+     	text-align: center;
+     	justify-content: center;
+     	padding-top: 15%;
+     	
+     	position: relative;
+     	width: 100%;
+     	left:0;
+     	
+     	/*-webkit-animation: glow 1.4s ease-in-out infinite alternate;
+     	-moz-animation: glow 1.4s ease-in-out infinite alternate;
+     	animation: glow 1.4s ease-in-out infinite alternate;*/
+       
+        text-shadow: 2px 2px 3px rgba(0,0,0,0.4);
+
+       
+     }
+
+     .tit span{
+     	position: relative;
+     	display: inline-block;
+     	color: #fff;
+     	margin:0;
+     	padding: 0;
+     	left:0;
+     	right: 0;
+     	letter-spacing: 0px;
+         animation: animate 2.3s ease-in-out infinite;
+         animation-delay: calc(0.08s * var(--i)); 
+     }
+     @keyframes animate {
+     	0%{
+     		transform : translateY(0px);
+
+     	}
+     	20%{
+     		transform : translateY(-10px);
+     		
+     	}
+     	40%,100%{
+     		transform : translateY(0px);
+     		
+     	}
+     	
+     	
+     }
+     #he{
+     	background: linear-gradient(120deg , #81ff6b,#017d68);
+     	-webkit-background-clip: text;
+     	-webkit-text-fill-color: transparent;
+     	font-size: 1.4em;
+     	text-shadow: none;
+
+     }
+     #te{
+     	background: linear-gradient(80deg ,#fff ,#fff);
+     	-webkit-background-clip: text;
+     	-webkit-text-fill-color: transparent;
+     
+     }
+     .inn{
+     	margin: 0;
+     	padding: 10px 10px;
+     	background : rgba(0,0,0,0.7);
+     	border : 2px 2px solid black;
+     	border-radius: 18px;
+     	box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+     	width : 85%;
+      position: relative;
+     }
+  .inn   p {
+     	color: white;
+    	font-family: 'Acme','Kanit', sans-serif;
+    	font-weight: bold;
+     	letter-spacing: 1.8px;
+     	font-size: 17px;
+     }
+    .bu{
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    display: inline-block;
+    border: 1.5px solid ;
+    padding: 12px 50px;
+   
+    margin-top:10px;
+    font-family: 'Acme',sans-serif;
+    font-weight: bold;
+    background : radial-gradient(#339180,#1ba68c);
+    box-shadow: inset 0 0 10px #175e51 ,0 0 30px #175e51,0 0 60px #175e51;
+     box-shadow: 0 0 10px #058585,0 0 40px #058585,0 0 80px #058585;
+    text-decoration: none;
+    font-size: 1.2em;
+    overflow: hidden;
+    border: none;
+    border-radius: 17px;
+     color: black;
+    transition: 0.2s;
+
+}
+.bu:hover{
+  color: white;
+  border: none;
+  transform: scale(1.1);
+  text-decoration: none;
+  background: radial-gradient(#339180,#1ba68c); 
+  box-shadow: 0 0 10px #058585,0 0 40px #058585,0 0 80px #058585;
+  
+}
+
+    /* @keyframes glow {
+     	from {
+     		text-shadow: 0 0 7px #fff, 0 0 14px #fff,0 0 21px #e60073, 0 0 29px #e60073,0 0 35px #e60073, 0 0 42px #ff4da6 , 0 0 49px #ff4da6;
+     	}
+     	top {
+     		text-shadow: 0 0 14px #fff, 0 0 21px #ff4da6,0 0 29px #ff4da6, 0 0 35px #ff4da6,0 0 42px #ff4da6, 0 0 49px #ff4da6 , 0 0 56px #ff4da6;
+     	}
+     }*/
+  .foot{
+  	margin-bottom: 0 ;
+    font-size : 13px;
+  	color: white;
+  	text-align: center;
+  	margin:0;
+  	padding: 0;
+  	position: relative;
+  }   
+  .foot h6,p{
+  	margin-top:1%;
+  }
+
+  @media only screen and (min-width: 650px) {
+     .inn{
+        width: 38%;
+     }
+     .tit{
+        padding-top:5%;
+     }
+}
+  </style>
+</head>
+<body>
+   <center><div class="tit" >
+   	 <span style="--i:1" id="he">T</span>
+   	 <span style="--i:2" id="te">C</span>
+   	 <span style="--i:3" id="te">E</span>
+   	 
+   	 <span style="--i:5" id="he">G</span>
+   	 <span style="--i:6" id="te">0</span>
+   </div></center><br><br><br>
+   <main>
+  <center> 	<div class="inn">
+   <center>	<p>Ready for Examination !!</p></center>
+   	<center><a  href="login.html"  class="bu" style="color: black" >LOGIN</a></center>
+   	<br><br><br>
+    <center> <p style="color: #a7d683">New to tcego ,regiter here !</p></center>
+    
+    <center><a  href="signup.html"  class="bu" >SIGN UP</a></center>
+    </div></center>
+
+   </main><br>
+   <footer>
+   	  <div class="foot">
+        
+   	  	<p>© All rights reserved</p>
+   	  </div>
+   </footer>
+</body>
